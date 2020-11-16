@@ -625,7 +625,7 @@ func (s *state) evalField(dot reflect.Value, fieldName string, node parse.Node, 
 		nameVal := reflect.ValueOf(fieldName)
 		if nameVal.Type().AssignableTo(receiver.Type().Key()) {
 			if hasArgs {
-				s.errorf("%s is not a method but has arguments", fieldName)
+				s.errorf("%s is not a function but has arguments", fieldName)
 			}
 			result := receiver.MapIndex(nameVal)
 			if !result.IsValid() {
